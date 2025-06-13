@@ -1,11 +1,11 @@
 'use client'
 
-import { MapPin, Leaf, HandHeart, Network, ArrowRight, Users2 } from 'lucide-react'
+import { MapPin, Leaf, Network, ArrowRight, Users2 } from 'lucide-react'
 
 const PropuestaTerritorial = () => {
   const principios = [
     {
-      icon: HandHeart,
+      icon: Leaf,
       title: "Solidaridad",
       description: "Promovemos la cooperación y el apoyo mutuo como base del desarrollo territorial.",
       color: "from-pink-600 to-red-600"

@@ -1,159 +1,262 @@
 'use client'
 
-import { Users, Target, Lightbulb, Crown } from 'lucide-react'
+import { useState } from 'react'
+import { Users, Target, Lightbulb, Play, MapPin, Calendar, Award, Heart } from 'lucide-react'
 
 const Nosotros = () => {
-  const misionAreas = [
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+
+  const handleVideoPlay = () => {
+    setIsVideoPlaying(true)
+  }
+
+  const principiosValues = [
+    {
+      icon: Heart,
+      title: "Solidaridad",
+      description: "Trabajamos unidos por el bienestar común de nuestras comunidades territoriales."
+    },
     {
       icon: Target,
-      title: "Misión",
-      description: "Promover el desarrollo territorial solidario a través del fortalecimiento organizacional, la formación de líderes y el acompañamiento a procesos comunitarios en las provincias del sur de Santander."
+      title: "Participación",
+      description: "Promovemos la participación activa y democrática en todos nuestros procesos."
     },
     {
       icon: Lightbulb,
-      title: "Áreas Estratégicas",
-      description: "Desarrollo organizacional, formación en economía solidaria, liderazgo territorial, investigación aplicada y articulación de redes sociales para el desarrollo sustentable."
+      title: "Sostenibilidad",
+      description: "Desarrollamos iniciativas que respetan el medio ambiente y son económicamente viables."
+    },
+    {
+      icon: Users,
+      title: "Inclusión",
+      description: "Garantizamos espacios de participación para todos los actores territoriales."
     }
   ]
 
-  const juntaDirectiva = [
-    {
-      nombre: "María Elena Rodríguez",
-      cargo: "Presidenta",
-      descripcion: "Líder social con 15 años de experiencia en desarrollo comunitario",
-      imagen: "👩‍💼"
-    },
-    {
-      nombre: "Carlos Andrés Mejía",
-      cargo: "Vicepresidente", 
-      descripcion: "Especialista en economía solidaria y cooperativismo",
-      imagen: "👨‍💼"
-    },
-    {
-      nombre: "Ana Lucía Torres",
-      cargo: "Secretaria",
-      descripcion: "Trabajadora social especializada en procesos territoriales",
-      imagen: "👩‍🎓"
-    },
-    {
-      nombre: "Roberto Gómez",
-      cargo: "Tesorero",
-      descripcion: "Contador público con experiencia en organizaciones sociales",
-      imagen: "👨‍💻"
-    }
-  ]
-
-  const instituciones = [
-    "Universidad Minuto de Dios - UNIMINUTO",
-    "Fundación Desarrollo y Paz del Magdalena Medio",
-    "Red de Mujeres del Sur de Santander",
-    "Cooperativa de Caficultores Solidarios",
+  const alianzasEstrategicas = [
+    "UNIMINUTO - Universidad Minuto de Dios",
+    "Fundación Paz y Reconciliación",
+    "Red Mujeres Rurales Santander",
+    "Cooperativa Multiactiva del Sur",
     "Asociación de Juntas de Acción Comunal",
-    "Centro de Formación Campesina"
+    "Programa de Desarrollo y Paz"
   ]
 
   return (
-    <section id="nosotros" className="py-20 bg-gray-50">
+    <section id="nosotros" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header de la sección */}
+
+        {/* Header principal */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-blue-800 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-[#1A519E] mb-6">
             Quiénes Somos
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Somos una asociación comprometida con el desarrollo territorial solidario, 
-            trabajando junto a comunidades y organizaciones para construir territorios más justos y sustentables.
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Somos una <strong>Asociación Promotora de Desarrollo Territorial Solidario</strong> que trabaja
+            en las provincias del sur de Santander, Colombia, fortaleciendo organizaciones sociales
+            y promoviendo el liderazgo comunitario para la transformación territorial.
           </p>
         </div>
 
-        {/* Misión y Áreas Estratégicas */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {misionAreas.map((area, index) => (
-            <div key={index} className="card hover:shadow-custom-hover transition-all duration-300">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-800 to-blue-600 rounded-lg flex items-center justify-center">
-                  <area.icon className="w-8 h-8 text-white" />
+        {/* Video institucional y descripción */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-20 items-center">
+
+          {/* Video institucional */}
+          <div className="relative">
+            <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl relative aspect-video">
+              {!isVideoPlaying ? (
+                // Thumbnail del video con botón de play
+                <div className="relative w-full h-full bg-gradient-to-br from-[#1A519E] to-[#0f2557] flex items-center justify-center">
+                  {/* Fondo oscuro semitransparente */}
+                  <div className="absolute inset-0">
+                    <img
+                      src="/4.png"
+                      alt="Video institucional Territorios Solidarios"
+                      className="w-full h-full object-cover opacity-70"
+                      onError={(e) => { e.target.style.display = 'none' }}
+                    />
+                    <div className="absolute inset-0 bg-black/20" />
+                  </div>
+
+                  {/* Botón centrado */}
+                  <button
+                    onClick={handleVideoPlay}
+                    className="relative z-10 w-20 h-20 bg-white/90 rounded-full flex items-center justify-center hover:bg-white transition-all duration-300 hover:scale-110 shadow-xl"
+                    aria-label="Reproducir video institucional"
+                  >
+                    <Play className="w-8 h-8 text-[#1A519E] ml-1" />
+                  </button>
+
+                  {/* Texto inferior */}
+                  <div className="absolute bottom-4 left-4 right-4 text-white z-10">
+                    <h3 className="text-lg font-bold mb-1">Video Institucional</h3>
+                    <p className="text-sm opacity-90">Conoce nuestra historia y compromiso territorial</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-blue-800 mb-3">{area.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{area.description}</p>
+
+              ) : (
+                // Video embed (reemplazar con tu video real)
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1"
+                  title="Video Institucional Territorios Solidarios"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              )}
+            </div>
+            <p className="text-sm text-gray-500 mt-3 text-center">
+              Duración: 3:45 min | Producido en 2024
+            </p>
+          </div>
+
+          {/* Descripción institucional */}
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-bold text-[#1A519E] mb-4 flex items-center gap-3">
+                <Calendar className="w-7 h-7 text-[#F9B233]" />
+                Nuestra Historia
+              </h3>
+              <p className="text-gray-600 leading-relaxed mb-4">
+                Fundados en <strong>2019</strong>, nacimos de la necesidad de articular y fortalecer
+                las organizaciones sociales del sur de Santander. Desde entonces, hemos acompañado
+                procesos de desarrollo territorial que priorizan la economía solidaria y la
+                participación comunitaria.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Trabajamos en municipios como <strong>Socorro, San Gil, Barichara, Villanueva,
+                  Curití y Pinchote</strong>, promoviendo modelos de desarrollo que respetan la
+                identidad cultural y los recursos naturales de nuestros territorios.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1A519E] mb-4 flex items-center gap-3">
+                <MapPin className="w-7 h-7 text-[#F9B233]" />
+                Nuestro Alcance
+              </h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#F9B233]">
+                  <div className="text-2xl font-bold text-[#1A519E]">8</div>
+                  <div className="text-sm text-gray-600">Municipios</div>
+                </div>
+                <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#C62877]">
+                  <div className="text-2xl font-bold text-[#1A519E]">45+</div>
+                  <div className="text-sm text-gray-600">Organizaciones</div>
+                </div>
+                <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#F9B233]">
+                  <div className="text-2xl font-bold text-[#1A519E]">180+</div>
+                  <div className="text-sm text-gray-600">Líderes Formados</div>
+                </div>
+                <div className="bg-white p-4 rounded-lg shadow-md border-l-4 border-[#C62877]">
+                  <div className="text-2xl font-bold text-[#1A519E]">5</div>
+                  <div className="text-sm text-gray-600">Años Experiencia</div>
                 </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Junta Directiva */}
+        {/* Misión y Visión */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#1A519E] to-[#0f2557] rounded-lg flex items-center justify-center">
+                <Target className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1A519E]">Misión</h3>
+            </div>
+            <p className="text-gray-600 leading-relaxed">
+              Promover el desarrollo territorial solidario a través del fortalecimiento organizacional,
+              la formación de líderes y el acompañamiento a procesos comunitarios que contribuyan
+              a la transformación social y económica del sur de Santander.
+            </p>
+          </div>
+
+          <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-[#F9B233] to-[#e1a000] rounded-lg flex items-center justify-center">
+                <Lightbulb className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-[#1A519E]">Visión</h3>
+            </div>
+            <p className="text-gray-600 leading-relaxed">
+              Ser reconocidos como la organización líder en desarrollo territorial solidario
+              del sur de Santander, siendo referente en procesos de fortalecimiento organizacional
+              y promoción de la economía solidaria a nivel regional.
+            </p>
+          </div>
+        </div>
+
+        {/* Principios y Valores */}
         <div className="mb-16">
           <div className="text-center mb-12">
-            <div className="flex justify-center mb-4">
-              <Crown className="w-12 h-12 text-yellow-500" />
-            </div>
-            <h3 className="text-3xl font-bold text-blue-800 mb-4">Junta Directiva</h3>
+            <h3 className="text-3xl font-bold text-[#1A519E] mb-4">Nuestros Principios</h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Nuestro equipo directivo está conformado por líderes comprometidos con el desarrollo territorial y la economía solidaria.
+              Los valores que guían nuestro trabajo y definen nuestra forma de relacionarnos
+              con las comunidades y organizaciones territoriales.
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {juntaDirectiva.map((miembro, index) => (
-              <div key={index} className="card text-center group hover:shadow-custom-hover transition-all duration-300">
-                <div className="text-6xl mb-4">{miembro.imagen}</div>
-                <h4 className="text-xl font-bold text-blue-800 mb-2">{miembro.nombre}</h4>
-                <p className="text-yellow-600 font-semibold mb-3">{miembro.cargo}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{miembro.descripcion}</p>
+            {principiosValues.map((principio, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 group">
+                <div className="w-12 h-12 bg-gradient-to-br from-[#C62877] to-[#a31e5a] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <principio.icon className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-[#1A519E] mb-3">{principio.title}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">{principio.description}</p>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Personas e Instituciones Asociadas */}
-        <div className="bg-white rounded-2xl p-8 shadow-custom">
+        {/* Alianzas Estratégicas */}
+        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
-              <Users className="w-12 h-12 text-blue-600" />
+              <Award className="w-12 h-12 text-[#F9B233]" />
             </div>
-            <h3 className="text-3xl font-bold text-blue-800 mb-4">Instituciones Asociadas</h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Trabajamos en alianza con diversas organizaciones que comparten nuestra visión 
-              de desarrollo territorial solidario y sustentable.
+            <h3 className="text-3xl font-bold text-[#1A519E] mb-4">Alianzas Estratégicas</h3>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              Trabajamos en red con instituciones académicas, organizaciones sociales y entidades
+              que comparten nuestra visión de desarrollo territorial solidario y sustentable.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {instituciones.map((institucion, index) => (
-              <div 
-                key={index} 
-                className="bg-gray-50 p-4 rounded-lg text-center hover:bg-blue-50 hover:border-blue-200 border-2 border-transparent transition-all duration-300 group"
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            {alianzasEstrategicas.map((alianza, index) => (
+              <div
+                key={index}
+                className="bg-gradient-to-r from-gray-50 to-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-[#1A519E]"
               >
-                <p className="text-gray-700 group-hover:text-blue-800 transition-colors duration-300 font-medium">
-                  {institucion}
-                </p>
+                <p className="text-gray-700 font-medium text-center">{alianza}</p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 text-center">
-            <button className="btn-secondary hover:btn-primary transition-all duration-300">
-              Ver Más Aliados
+          <div className="text-center">
+            <button className="bg-[#1A519E] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#0f2557] transition-all duration-300 hover:scale-105 shadow-lg">
+              Conocer Más Aliados
             </button>
           </div>
         </div>
 
-        {/* Estadísticas */}
-        <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { numero: "50+", texto: "Organizaciones Acompañadas" },
-            { numero: "200+", texto: "Líderes Formados" },
-            { numero: "8", texto: "Municipios de Influencia" },
-            { numero: "5", texto: "Años de Experiencia" }
-          ].map((stat, index) => (
-            <div key={index} className="text-center p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="text-3xl font-bold text-blue-800 mb-2">{stat.numero}</div>
-              <div className="text-gray-600">{stat.texto}</div>
-            </div>
-          ))}
+        {/* Call to Action */}
+        <div className="mt-16 text-center">
+          <div className="bg-gradient-to-r from-[#1A519E] to-[#0f2557] rounded-2xl p-8 text-white">
+            <h3 className="text-2xl font-bold mb-4">¿Quieres ser parte del cambio?</h3>
+            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+              Únete a nuestra red de organizaciones y líderes comprometidos con el desarrollo
+              territorial solidario del sur de Santander.
+            </p>
+            <button className="bg-[#F9B233] text-[#1A519E] px-8 py-3 rounded-lg font-bold hover:bg-[#e1a000] transition-all duration-300 hover:scale-105 shadow-lg">
+              Formar Parte
+            </button>
+          </div>
         </div>
+
       </div>
     </section>
   )

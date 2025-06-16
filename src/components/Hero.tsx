@@ -14,32 +14,28 @@ const Hero = () => {
       subtitle: "Construyendo desarrollo solidario en las provincias del sur de Santander",
       description: "Somos una asociación comprometida con el fortalecimiento organizacional y el liderazgo territorial solidario, trabajando junto a las comunidades para construir un futuro más justo y equitativo.",
       icon: MapPin,
-      // Para imágenes reales, agregar:
-      // backgroundImage: "/assets/images/hero/territorio-solidario-1.jpg"
-      backgroundImage: null
+      backgroundImage: "" // Imagen real del territorio
     },
     {
       title: "Liderazgo Social Transformador",
       subtitle: "Formamos líderes para el cambio social y territorial",
       description: "Acompañamos procesos de formación en economía solidaria y desarrollo sustentable, fortaleciendo las capacidades de líderes y organizaciones sociales comprometidas con el cambio.",
       icon: Users,
-      // backgroundImage: "/assets/images/hero/liderazgo-social-2.jpg"
-      backgroundImage: null
+      backgroundImage: "" // Imagen de formación/talleres
     },
     {
       title: "Desarrollo Humano Integral",
       subtitle: "Promovemos el desarrollo integral de las comunidades",
       description: "Trabajamos por un modelo de desarrollo que ponga en el centro a las personas y sus territorios, respetando la diversidad cultural y promoviendo la participación ciudadana activa.",
       icon: Heart,
-      // backgroundImage: "/assets/images/hero/desarrollo-humano-3.jpg"
-      backgroundImage: null
+      backgroundImage: "/assets/images/hero/desarrollo-humano-3.jpg" // Imagen de comunidad trabajando
     }
   ]
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 6000) // Cambia cada 6 segundos para dar más tiempo de lectura
+    }, 6000)
     return () => clearInterval(timer)
   }, [])
 
@@ -50,93 +46,64 @@ const Hero = () => {
     }
   }
 
-  // Logo circular tipo árbol (para el hero)
-  const LogoArbol = ({ className = "w-24 h-24" }: { className?: string }) => (
-    <div className={`${className} relative`}>
-      <svg viewBox="0 0 100 100" className="w-full h-full">
-        <circle cx="50" cy="50" r="45" fill="none" stroke="#fff" strokeWidth="3"/>
-        <g transform="translate(50,50)">
-          <path d="M0,20 L0,-15" stroke="#fff" strokeWidth="3"/>
-          <path d="M-20,-10 Q-15,-20 -5,-15 Q0,-25 5,-15 Q15,-20 20,-10 Q15,0 5,-5 Q0,5 -5,-5 Q-15,0 -20,-10" 
-                fill="#be185d"/>
-          <path d="M-15,-5 Q-10,-15 0,-10 Q10,-15 15,-5 Q10,5 0,0 Q-10,5 -15,-5" 
-                fill="#f59e0b"/>
-        </g>
-      </svg>
-    </div>
-  )
-
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Fondo base con gradiente */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700"></div>
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-56 lg:pt-48">
+      {/* Fondo base para cuando no hay imagen o como fallback */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1A519E] via-[#1A519E] to-[#0f2557]"></div>
       
-      {/* Imagen de fondo opcional (para usar con imágenes reales) */}
+      {/* Imagen de fondo */}
       {slides[currentSlide].backgroundImage && (
         <div className="absolute inset-0">
           <Image
             src={slides[currentSlide].backgroundImage}
             alt={slides[currentSlide].title}
             fill
-            className="object-cover opacity-30"
+            className="object-cover object-center"
             priority
           />
-          <div className="absolute inset-0 bg-blue-900/60"></div>
+          {/* Overlay más sutil y natural */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
+          <div className="absolute inset-0 bg-[#1A519E]/25"></div>
         </div>
       )}
       
-      {/* Elementos decorativos sutiles y profesionales */}
-      <div className="absolute inset-0 opacity-20">
-        {/* Círculos sutiles */}
+      {/* Elementos decorativos más sutiles y profesionales */}
+      <div className="absolute inset-0 opacity-15">
+        {/* Círculos con colores del brand */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-24 h-24 bg-yellow-400/20 rounded-full animate-bounce" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
-        <div className="absolute bottom-32 left-20 w-20 h-20 bg-pink-600/20 rounded-full animate-pulse" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-[#F9B233]/20 rounded-full animate-bounce" style={{ animationDelay: '2s', animationDuration: '4s' }}></div>
+        <div className="absolute bottom-32 left-20 w-20 h-20 bg-[#C62877]/20 rounded-full animate-pulse" style={{ animationDelay: '3s' }}></div>
         <div className="absolute bottom-20 right-32 w-28 h-28 bg-white/10 rounded-full animate-bounce" style={{ animationDelay: '1s', animationDuration: '5s' }}></div>
         
         {/* Formas geométricas sutiles */}
-        <div className="absolute top-60 left-1/4 w-12 h-12 bg-yellow-400/20 transform rotate-45 animate-spin" style={{ animationDuration: '20s' }}></div>
-        <div className="absolute bottom-40 right-1/4 w-8 h-8 bg-pink-600/20 transform rotate-45 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }}></div>
+        <div className="absolute top-60 left-1/4 w-12 h-12 bg-[#F9B233]/20 transform rotate-45 animate-spin" style={{ animationDuration: '20s' }}></div>
+        <div className="absolute bottom-40 right-1/4 w-8 h-8 bg-[#C62877]/20 transform rotate-45 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }}></div>
       </div>
 
       {/* Contenido principal */}
-      <div className="relative z-10 container-custom px-4 text-center">
+      <div className="relative z-10 container mx-auto max-w-7xl px-4 text-center">
         <div className="max-w-5xl mx-auto">
-          {/* Logo principal */}
-          <div className="flex justify-center mb-8 animate-fade-in">
-            {/* 
-              Para usar el logo PNG real en lugar del SVG:
-              
-              <Image
-                src="/assets/logos/logo-principal-blanco.png"
-                alt="Territorios Solidarios"
-                width={96}
-                height={96}
-                className="drop-shadow-lg"
-                priority
-              />
-            */}
-          </div>
-
-          {/* Contenido del slide actual */}
+        
+          {/* Contenido del slide actual con mejor espaciado */}
           <div className="mb-8 transition-all duration-1000 ease-in-out"> 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
               {slides[currentSlide].title}
             </h1>
             
-            <h2 className="text-xl sm:text-2xl lg:text-3xl text-blue-200 mb-6 font-light">
+            <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-blue-200 mb-6 font-light leading-relaxed">
               {slides[currentSlide].subtitle}
             </h2>
             
-            <p className="text-lg sm:text-xl text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
               {slides[currentSlide].description}
             </p>
           </div>
 
-          {/* Botones de acción */}
+          {/* Botones de acción mejorados */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <button 
               onClick={() => scrollToNext()}
-              className="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-300 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center gap-2"
+              className="bg-[#F9B233] text-[#1A519E] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#F9B233]/90 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center gap-2 min-w-[260px] justify-center"
             >
               Conoce Nuestra Propuesta
               <ArrowRight size={20} />
@@ -144,45 +111,49 @@ const Hero = () => {
             
             <button 
               onClick={() => document.getElementById('formar-parte')?.scrollIntoView({ behavior: 'smooth' })}
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-blue-900 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm bg-white/10"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-[#1A519E] transform hover:scale-105 transition-all duration-300 backdrop-blur-sm bg-white/10 min-w-[200px]"
             >
               Únete a Nosotros
             </button>
           </div>
 
           {/* Indicadores de slides mejorados */}
-          <div className="flex justify-center space-x-3 mb-8">
+          <div className="flex justify-center space-x-3 mb-20">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 className={`transition-all duration-500 rounded-full ${
                   index === currentSlide 
-                    ? 'bg-yellow-400 w-10 h-3 shadow-lg' 
+                    ? 'bg-[#F9B233] w-10 h-3 shadow-lg' 
                     : 'bg-white/50 w-3 h-3 hover:bg-white/70'
                 }`}
+                aria-label={`Ir al slide ${index + 1}`}
               />
             ))}
           </div>
         </div>
 
-        {/* Flecha para scroll mejorada */}
-        <button 
-          onClick={scrollToNext}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-white hover:text-yellow-400 transition-colors duration-300 group"
-        >
-          <div className="flex flex-col items-center">
-            <span className="text-sm text-blue-200 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* Flecha para scroll más pequeña y bien separada */}
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20">
+          <button 
+            onClick={scrollToNext}
+            className="flex flex-col items-center text-white hover:text-[#F9B233] transition-all duration-300 group animate-bounce"
+            aria-label="Desplazarse a la siguiente sección"
+          >
+            <span className="text-xs text-blue-100 mb-2 opacity-80 group-hover:opacity-100 transition-opacity duration-300 font-medium">
               Conoce más
             </span>
-            <ChevronDown size={32} />
-          </div>
-        </button>
+            <div className="w-8 h-8 border-2 border-white/50 rounded-full flex items-center justify-center group-hover:border-[#F9B233] group-hover:bg-white/10 transition-all duration-300">
+              <ChevronDown size={16} />
+            </div>
+          </button>
+        </div>
       </div>
 
-      {/* Wave decoration mejorada */}
+      {/* Wave decoration con mejor integración */}
       <div className="absolute bottom-0 left-0 w-full">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-16 fill-white opacity-90">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-16 fill-white">
           <path d="M0,60 C400,20 800,100 1200,60 L1200,120 L0,120 Z"></path>
         </svg>
       </div>

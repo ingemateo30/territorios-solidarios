@@ -6,6 +6,7 @@ import Nosotros from '@/components/sections/Nosotros'
 import PropuestaTerritorial from '@/components/sections/PropuestaTerritorial'
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import Footer from '@/components/Footer'
+import Boton from '@/components/sections/botonsubir';
 
 import {
   Briefcase,
@@ -104,6 +105,7 @@ export default function Home() {
           chatboxHeight={340}
         />
       </div>
+      <Boton />
     </main>
   )
 }

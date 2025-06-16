@@ -107,15 +107,13 @@ const Header = () => {
                         />
                     </div>
 
-
-
-
                     {/* Eslogan (centrado) */}
-                    <div className="hidden lg:block justify-center text-center flex-1">
+                    <div className="hidden lg:block justify-center text-center flex-1 ml-48">
                         <span className="text-[#C62877] font-bold">
-                            Aprender <span className="text-[#1A519E]">a trabajar juntos</span>
+                            Aprendiendo <span className="text-[#1A519E]">a trabajar juntos</span>
                         </span>
                     </div>
+
 
                     {/* Banderas y redes sociales */}
                     <div className="hidden lg:flex items-center gap-4">
@@ -195,7 +193,7 @@ const Header = () => {
                 <div className="container mx-auto max-w-7xl px-4">
                     <div className="flex justify-between items-center">
                         {/* Menú desktop */}
-                        <nav className="hidden lg:flex items-center w-full py-2 gap-1">
+                        <nav className="hidden lg:flex items-center justify-center w-full py-2 gap-1">
                             {navigationItems.map((item) => (
                                 <button
                                     key={item.id}

@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Users, Target, Lightbulb, Play, MapPin, Calendar, Award, Heart } from 'lucide-react'
+import { Users, Target, Lightbulb, Play, Heart } from 'lucide-react'
+import Image from 'next/image'
 
 const Nosotros = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
@@ -33,15 +34,6 @@ const Nosotros = () => {
     }
   ]
 
-  const alianzasEstrategicas = [
-    "UNIMINUTO - Universidad Minuto de Dios",
-    "Fundación Paz y Reconciliación",
-    "Red Mujeres Rurales Santander",
-    "Cooperativa Multiactiva del Sur",
-    "Asociación de Juntas de Acción Comunal",
-    "Programa de Desarrollo y Paz"
-  ]
-
   return (
     <section id="nosotros" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,11 +61,12 @@ const Nosotros = () => {
                 <div className="relative w-full h-full bg-gradient-to-br from-[#1A519E] to-[#0f2557] flex items-center justify-center">
                   {/* Fondo oscuro semitransparente */}
                   <div className="absolute inset-0">
-                    <img
+                    <Image
                       src="/4.png"
                       alt="Video institucional Territorios Solidarios"
                       className="w-full h-full object-cover opacity-70"
-                      onError={(e) => { e.target.style.display = 'none' }}
+                      width={640}
+                      height={360}
                     />
                     <div className="absolute inset-0 bg-black/20" />
                   </div>
@@ -115,7 +108,6 @@ const Nosotros = () => {
           <div className="space-y-6">
             <div>
               <h3 className="text-2xl font-bold text-[#1A519E] mb-4 flex items-center gap-3">
-                <Calendar className="w-7 h-7 text-[#F9B233]" />
                 Nuestra Historia
               </h3>
               <p className="text-gray-600 leading-relaxed mb-4">
@@ -133,7 +125,6 @@ const Nosotros = () => {
 
             <div>
               <h3 className="text-2xl font-bold text-[#1A519E] mb-4 flex items-center gap-3">
-                <MapPin className="w-7 h-7 text-[#F9B233]" />
                 Nuestro Alcance
               </h3>
               <div className="grid grid-cols-2 gap-4">
@@ -162,9 +153,7 @@ const Nosotros = () => {
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#1A519E] to-[#0f2557] rounded-lg flex items-center justify-center">
-                <Target className="w-6 h-6 text-white" />
-              </div>
+
               <h3 className="text-2xl font-bold text-[#1A519E]">Misión</h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
@@ -176,9 +165,7 @@ const Nosotros = () => {
 
           <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
             <div className="flex items-center gap-4 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#F9B233] to-[#e1a000] rounded-lg flex items-center justify-center">
-                <Lightbulb className="w-6 h-6 text-white" />
-              </div>
+
               <h3 className="text-2xl font-bold text-[#1A519E]">Visión</h3>
             </div>
             <p className="text-gray-600 leading-relaxed">
@@ -211,38 +198,6 @@ const Nosotros = () => {
             ))}
           </div>
         </div>
-
-        {/* Alianzas Estratégicas */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-          <div className="text-center mb-8">
-            <div className="flex justify-center mb-4">
-              <Award className="w-12 h-12 text-[#F9B233]" />
-            </div>
-            <h3 className="text-3xl font-bold text-[#1A519E] mb-4">Alianzas Estratégicas</h3>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              Trabajamos en red con instituciones académicas, organizaciones sociales y entidades
-              que comparten nuestra visión de desarrollo territorial solidario y sustentable.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
-            {alianzasEstrategicas.map((alianza, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-r from-gray-50 to-blue-50 p-4 rounded-lg hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-[#1A519E]"
-              >
-                <p className="text-gray-700 font-medium text-center">{alianza}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <button className="bg-[#1A519E] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#0f2557] transition-all duration-300 hover:scale-105 shadow-lg">
-              Conocer Más Aliados
-            </button>
-          </div>
-        </div>
-
         {/* Call to Action */}
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-r from-[#1A519E] to-[#0f2557] rounded-2xl p-8 text-white">

@@ -14,21 +14,21 @@ const Hero = () => {
       subtitle: "Construyendo desarrollo solidario en las provincias del sur de Santander",
       description: "Somos una asociación comprometida con el fortalecimiento organizacional y el liderazgo territorial solidario, trabajando junto a las comunidades para construir un futuro más justo y equitativo.",
       icon: MapPin,
-      backgroundImage: "" // Imagen real del territorio
+      backgroundImage: "/10.png" // Imagen real del territorio
     },
     {
       title: "Liderazgo Social Transformador",
       subtitle: "Formamos líderes para el cambio social y territorial",
       description: "Acompañamos procesos de formación en economía solidaria y desarrollo sustentable, fortaleciendo las capacidades de líderes y organizaciones sociales comprometidas con el cambio.",
       icon: Users,
-      backgroundImage: "" // Imagen de formación/talleres
+      backgroundImage: "/11.png" // Imagen de formación/talleres
     },
     {
       title: "Desarrollo Humano Integral",
       subtitle: "Promovemos el desarrollo integral de las comunidades",
       description: "Trabajamos por un modelo de desarrollo que ponga en el centro a las personas y sus territorios, respetando la diversidad cultural y promoviendo la participación ciudadana activa.",
       icon: Heart,
-      backgroundImage: "/assets/images/hero/desarrollo-humano-3.jpg" // Imagen de comunidad trabajando
+      backgroundImage: "/13.jpg" // Imagen de comunidad trabajando
     }
   ]
 
@@ -47,7 +47,7 @@ const Hero = () => {
   }
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-56 lg:pt-48">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-56 lg:pt-52">
       {/* Fondo base para cuando no hay imagen o como fallback */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#1A519E] via-[#1A519E] to-[#0f2557]"></div>
       
@@ -86,21 +86,21 @@ const Hero = () => {
         
           {/* Contenido del slide actual con mejor espaciado */}
           <div className="mb-8 transition-all duration-1000 ease-in-out"> 
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight drop-shadow-lg">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
               {slides[currentSlide].title}
             </h1>
             
-            <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-blue-200 mb-6 font-light leading-relaxed">
+            <h2 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl text-blue-200 mb-8 font-light leading-relaxed">
               {slides[currentSlide].subtitle}
             </h2>
             
-            <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-4xl mx-auto mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg lg:text-xl text-blue-100 max-w-4xl mx-auto mb-10 leading-relaxed">
               {slides[currentSlide].description}
             </p>
           </div>
 
           {/* Botones de acción mejorados */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <button 
               onClick={() => scrollToNext()}
               className="bg-[#F9B233] text-[#1A519E] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#F9B233]/90 transform hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center gap-2 min-w-[260px] justify-center"
@@ -118,7 +118,7 @@ const Hero = () => {
           </div>
 
           {/* Indicadores de slides mejorados */}
-          <div className="flex justify-center space-x-3 mb-20">
+          <div className="flex justify-center space-x-3 mb-24">
             {slides.map((_, index) => (
               <button
                 key={index}
@@ -135,7 +135,7 @@ const Hero = () => {
         </div>
 
         {/* Flecha para scroll más pequeña y bien separada */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-20">
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
           <button 
             onClick={scrollToNext}
             className="flex flex-col items-center text-white hover:text-[#F9B233] transition-all duration-300 group animate-bounce"

@@ -4,6 +4,9 @@ import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Nosotros from '@/components/sections/Nosotros'
 import PropuestaTerritorial from '@/components/sections/PropuestaTerritorial'
+import AntecedentesHistoricos from '@/components/sections/AntecedentesHistoricos'
+import AreasMisionales from '@/components/sections/AreasMisionales'
+import VinculacionJunta from '@/components/sections/VinculacionJunta'
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import Footer from '@/components/Footer'
 import Boton from '@/components/sections/botonsubir';
@@ -22,7 +25,10 @@ export default function Home() {
       <Header />
       <Hero />
       <Nosotros />
+      <AntecedentesHistoricos />
+      <AreasMisionales />
       <PropuestaTerritorial />
+      <VinculacionJunta />
 
 
       {/* Secciones pendientes con diseño mejorado */}

@@ -14,21 +14,21 @@ const Hero = () => {
       subtitle: "Construyendo desarrollo solidario en las provincias del sur de Santander",
       description: "Somos una asociación comprometida con el fortalecimiento organizacional y el liderazgo territorial solidario, trabajando junto a las comunidades para construir un futuro más justo y equitativo.",
       icon: MapPin,
-      backgroundImage: "/10.png" // Imagen real del territorio
+      backgroundImage: "/T1.jpeg" // Imagen real del territorio
     },
     {
       title: "Liderazgo Social Transformador",
       subtitle: "Formamos líderes para el cambio social y territorial",
       description: "Acompañamos procesos de formación en economía solidaria y desarrollo sustentable, fortaleciendo las capacidades de líderes y organizaciones sociales comprometidas con el cambio.",
       icon: Users,
-      backgroundImage: "/11.png" // Imagen de formación/talleres
+      backgroundImage: "/T2.jpeg" // Imagen de formación/talleres
     },
     {
       title: "Desarrollo Humano Integral",
       subtitle: "Promovemos el desarrollo integral de las comunidades",
       description: "Trabajamos por un modelo de desarrollo que ponga en el centro a las personas y sus territorios, respetando la diversidad cultural y promoviendo la participación ciudadana activa.",
       icon: Heart,
-      backgroundImage: "/13.jpg" // Imagen de comunidad trabajando
+      backgroundImage: "/T4.jpeg" // Imagen de comunidad trabajando
     }
   ]
 

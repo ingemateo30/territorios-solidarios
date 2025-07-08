@@ -100,7 +100,7 @@ const Nosotros = () => {
               )}
             </div>
             <p className="text-sm text-gray-500 mt-3 text-center">
-              Duración: 3:45 min | Producido en 2024
+              Duración: 2:00 min | Producido en 2025
             </p>
           </div>
 

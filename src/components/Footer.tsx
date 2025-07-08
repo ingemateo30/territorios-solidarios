@@ -53,7 +53,7 @@ const Footer = () => {
                         {/* Eslogan del header */}
                         <div className="mb-6">
                             <span className="text-[#F9B233] font-bold text-lg">
-                                Aprender <span className="text-blue-200">a trabajar juntos</span>
+                                Aprendiendo <span className="text-blue-200">a trabajar juntos</span>
                             </span>
                         </div>
                         

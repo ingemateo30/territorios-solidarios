@@ -1,6 +1,6 @@
 'use client'
 
-import { MapPin, Leaf, Network, ArrowRight, Users2 } from 'lucide-react'
+import { Leaf, Network, ArrowRight, Users2 } from 'lucide-react'
 
 const PropuestaTerritorial = () => {
   const principios = [
@@ -83,7 +83,7 @@ const PropuestaTerritorial = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex justify-center mb-6">
-            <MapPin className="w-16 h-16 text-blue-600" />
+            
           </div>
           <h2 className="text-4xl font-bold text-blue-800 mb-6">
             Nuestra Propuesta Territorial

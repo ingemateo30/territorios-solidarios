@@ -1,7 +1,7 @@
 'use client'
 
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import Nosotros from '@/components/sections/Nosotros'
@@ -86,16 +86,15 @@ const ServiceCard = ({ seccion, index }: { seccion: Seccion, index: number }) =>
 // Componente para estadísticas animadas
 
 export default function Home() {
-  const { scrollYProgress } = useScroll()
-  const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.8])
-  const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95])
+  //const { scrollYProgress } = useScroll()
+  //const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0.8])
+  //const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.95])
 
   return (
     <main className="min-h-screen overflow-x-hidden">
-      {/* Header con efecto de parallax */}
-      <motion.div style={{ opacity, scale }}>
+     
         <Header />
-      </motion.div>
+      
 
       {/* Hero Section mejorado */}
       <FadeInSection delay={0}>

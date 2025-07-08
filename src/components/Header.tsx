@@ -11,13 +11,14 @@ const Header = () => {
     const navigationItems = [
         { id: 'inicio', label: 'INICIO' },
         { id: 'nosotros', label: 'NOSOTROS' },
-        { id: 'propuesta', label: 'NUESTRA PROPUESTA' },
-        { id: 'formar-parte', label: 'FORMAR PARTE' },
-        { id: 'portafolio', label: 'SERVICIOS' },
-        { id: 'herramientas', label: 'HERRAMIENTAS' },
-        { id: 'actualidad', label: 'ACTUALIDAD' },
-        { id: 'contacto', label: 'CONTÁCTENOS' },
+        { id: 'antecedentes', label: 'ANTECEDENTES' },
+        { id: 'areas-misionales', label: 'ÁREAS MISIONALES' },
+        { id: 'propuesta', label: 'PROPUESTA TERRITORIAL' },
+        { id: 'vinculacion', label: 'FORMAR PARTE' },
+        { id: 'servicios-futuros', label: 'SERVICIOS' },
+        { id: 'contacto', label: 'CONTACTO' },
     ]
+
 
     useEffect(() => {
         const handleScroll = () => {
